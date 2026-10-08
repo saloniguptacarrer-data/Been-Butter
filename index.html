@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bean &amp; Butter | Good coffee. Better moments.</title>
+  <meta name="description" content="Bean & Butter is a fictional modern café, brunch and bakery concept.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-intro" id="site-intro" role="status" aria-live="polite">
+  <div class="intro-content">
+    <p class="intro-welcome">Welcome to Demo Project</p>
+    <span class="intro-rule" aria-hidden="true"></span>
+    <p class="intro-brand">Bean &amp; Butter <span aria-hidden="true">☕</span></p>
+    <p class="intro-credit">Presented by WebNest Studio</p>
+    <p class="intro-handle">@webneststudio_in</p>
+  </div>
+</div>
+
+<!-- Icon sprite used for interface controls. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.800-8 11-8 11z" fill="currentColor"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- 1. NAVBAR -->
+<header class="site-header">
+  <nav class="navbar" aria-label="Main navigation">
+    <a class="logo" href="#home">Bean <span>&amp;</span> Butter</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <span class="account-greeting" id="account-greeting" hidden></span>
+      <button class="btn btn-outline account-nav-button" id="my-bookings-button" type="button" hidden>My Bookings</button>
+      <button class="btn btn-outline account-nav-button" id="logout-button" type="button" hidden>Log out</button>
+      <button class="btn btn-outline js-login" type="button">Login</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- 2. HERO -->
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <h1>Good coffee. <br>Better moments.</h1>
+      <p>Slow-poured coffee, weekend brunch plates and pastries that come out of the oven while you wait. Pull up a chair, stay a while.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#menu">Explore Menu</a>
+        <a class="btn btn-outline" href="#reservations">Reserve a Table</a>
+      </div>
+      <p class="fine-print">Bean &amp; Butter is a fictional café concept made for a website project.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-arch">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Warm, modern café interior with inviting tables and soft natural light">
+        <span class="steam steam-1"></span><span class="steam steam-2"></span><span class="steam steam-3"></span>
+      </div>
+      <div class="hero-badge"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&amp;fit=crop&amp;w=120&amp;h=120&amp;q=85" alt="Freshly baked flaky croissant"><span>Baked fresh every morning</span></div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURED MENU -->
+  <section class="section" id="menu">
+    <div class="section-head">
+      <h2>From our kitchen</h2>
+      <p class="sample-note">Sample menu. All dishes and prices are fictional.</p>
+    </div>
+    <div class="menu-grid">
+      <article class="card menu-card">
+        <div class="dish-art tone-brown"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Freshly poured coffee served in a ceramic cup"></div>
+        <div class="menu-body">
+          <span class="tag">Coffee</span>
+          <h3>Brown Butter Latte</h3>
+          <p>Espresso, steamed milk and a spoon of nutty browned butter.</p>
+          <div class="menu-foot"><span class="price">₹220</span>
+            <button class="fav-btn" type="button" aria-pressed="false" aria-label="Save Brown Butter Latte to favourites"><svg><use href="#i-heart"/></svg></button></div>
+        </div>
+      </article>
+      <article class="card menu-card">
+        <div class="dish-art tone-butter"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Breakfast toast with eggs and fresh toppings"></div>
+        <div class="menu-body">
+          <span class="tag">Breakfast</span>
+          <h3>Soft Scramble Toast</h3>
+          <p>Creamy eggs on toasted sourdough with chives and chilli butter.</p>
+          <div class="menu-foot"><span class="price">₹280</span>
+            <button class="fav-btn" type="button" aria-pressed="false" aria-label="Save Soft Scramble Toast to favourites"><svg><use href="#i-heart"/></svg></button></div>
+        </div>
+      </article>
+      <article class="card menu-card">
+        <div class="dish-art tone-sage"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Colorful brunch bowl with fresh vegetables and greens"></div>
+        <div class="menu-body">
+          <span class="tag">Brunch</span>
+          <h3>Garden Brunch Bowl</h3>
+          <p>Herbed grains, roasted veg, poached egg and a lemon-yoghurt drizzle.</p>
+          <div class="menu-foot"><span class="price">₹340</span>
+            <button class="fav-btn" type="button" aria-pressed="false" aria-label="Save Garden Brunch Bowl to favourites"><svg><use href="#i-heart"/></svg></button></div>
+        </div>
+      </article>
+      <article class="card menu-card">
+        <div class="dish-art tone-terracotta"><img src="https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Golden, flaky almond croissant fresh from the bakery"></div>
+        <div class="menu-body">
+          <span class="tag">Bakery</span>
+          <h3>Almond Croissant</h3>
+          <p>Flaky layers filled with almond cream and finished with toasted flakes.</p>
+          <div class="menu-foot"><span class="price">₹190</span>
+            <button class="fav-btn" type="button" aria-pressed="false" aria-label="Save Almond Croissant to favourites"><svg><use href="#i-heart"/></svg></button></div>
+        </div>
+      </article>
+      <article class="card menu-card">
+        <div class="dish-art tone-butter"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Rich chocolate layer cake ready for dessert"></div>
+        <div class="menu-body">
+          <span class="tag">Dessert</span>
+          <h3>Honey Butter Cake</h3>
+          <p>A tender golden slice with whipped cream and a drizzle of honey.</p>
+          <div class="menu-foot"><span class="price">₹210</span>
+            <button class="fav-btn" type="button" aria-pressed="false" aria-label="Save Honey Butter Cake to favourites"><svg><use href="#i-heart"/></svg></button></div>
+        </div>
+      </article>
+      <article class="card menu-card">
+        <div class="dish-art tone-sage"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Chilled cold brew coffee served over ice"></div>
+        <div class="menu-body">
+          <span class="tag">Coffee</span>
+          <h3>Cardamom Cold Brew</h3>
+          <p>Twelve-hour cold brew, a hint of cardamom and a splash of cream.</p>
+          <div class="menu-foot"><span class="price">₹240</span>
+            <button class="fav-btn" type="button" aria-pressed="false" aria-label="Save Cardamom Cold Brew to favourites"><svg><use href="#i-heart"/></svg></button></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4. ABOUT -->
+  <section class="section about" id="about">
+    <div class="about-art" aria-hidden="true">
+      <div class="about-shape"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Warm bakery kitchen where fresh pastries are prepared" loading="lazy" decoding="async"></div>
+    </div>
+    <div class="about-copy">
+      <h2>A small café built around long chats</h2>
+      <p>Bean &amp; Butter began as an imagined corner in a busy market: a place where the coffee is roasted in small batches, the bread is shaped by hand at dawn, and nobody rushes you out.</p>
+      <p>We buy vegetables, eggs and dairy from nearby farms, keep the menu short so everything stays fresh, and leave the tables a little too close together, so conversations tend to wander.</p>
+      <p class="fine-print">This story is fictional and written for a demo website.</p>
+    </div>
+  </section>
+
+  <!-- 5. SIGNATURE SECTION -->
+  <section class="section signature">
+    <div class="section-head">
+      <h2>Our signatures</h2>
+      <p>Three things people come back for.</p>
+    </div>
+    <div class="signature-grid">
+      <article class="signature-item tone-brown">
+        <img class="signature-photo" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=85" alt="Barista-made coffee in a white cup" loading="lazy" decoding="async">
+        <h3>The Coffee</h3>
+        <p>Small-batch beans, pulled slowly and poured with care.</p>
+      </article>
+      <article class="signature-item tone-sage">
+        <img class="signature-photo" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=85" alt="Fresh brunch plate with seasonal ingredients" loading="lazy" decoding="async">
+        <h3>The Brunch</h3>
+        <p>Weekend plates made with seasonal produce and local eggs.</p>
+      </article>
+      <article class="signature-item tone-terracotta">
+        <img class="signature-photo" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=85" alt="Fresh artisan bread and pastries from the bakery" loading="lazy" decoding="async">
+        <h3>The Bakery</h3>
+        <p>Croissants, loaves and cakes baked in small trays all day.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6. GALLERY -->
+  <section class="section" id="gallery">
+    <div class="section-head">
+      <h2>Inside the café</h2>
+      <p class="sample-note">Sample photography from our fictional café.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-tile tile-a tone-butter"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1000&amp;h=800&amp;q=85" alt="Bright modern café interior with warm wood tables" loading="lazy" decoding="async"><figcaption>Inside the café</figcaption></figure>
+      <figure class="gallery-tile tile-b tone-sage"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Barista serving freshly brewed coffee at the counter" loading="lazy" decoding="async"><figcaption>Morning pour</figcaption></figure>
+      <figure class="gallery-tile tile-c tone-terracotta"><img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&amp;fit=crop&amp;w=700&amp;h=800&amp;q=85" alt="Freshly baked croissants with crisp, golden layers" loading="lazy" decoding="async"><figcaption>Fresh croissants</figcaption></figure>
+      <figure class="gallery-tile tile-d tone-brown"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Colorful brunch spread made with fresh ingredients" loading="lazy" decoding="async"><figcaption>Brunch table</figcaption></figure>
+      <figure class="gallery-tile tile-e tone-butter"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&amp;fit=crop&amp;w=1000&amp;h=500&amp;q=85" alt="Delicate slice of cake served as the café's dessert of the day" loading="lazy" decoding="async"><figcaption>Cake of the day</figcaption></figure>
+      <figure class="gallery-tile tile-f tone-sage"><img src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Fresh bread and pastries displayed in the bakery" loading="lazy" decoding="async"><figcaption>From the bakery</figcaption></figure>
+      <figure class="gallery-tile tile-g tone-terracotta"><img src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&amp;fit=crop&amp;w=700&amp;h=500&amp;q=85" alt="Cozy café seating with warm wood furniture" loading="lazy" decoding="async"><figcaption>A quiet corner</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 7. RESERVATION PREVIEW -->
+  <section class="section reservation" id="reservations">
+    <div class="reservation-intro">
+      <h2>Save us a table</h2>
+      <p>Pick a day, a time and how many of you are coming. Your request will be saved as pending.</p>
+    </div>
+    <form class="reservation-form card" id="reservation-form" novalidate>
+      <div class="field">
+        <label for="res-date">Date</label>
+        <input type="date" id="res-date" name="date" required aria-describedby="date-error">
+        <p class="field-error" id="date-error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="res-time">Time</label>
+        <select id="res-time" name="time" required aria-describedby="time-error">
+          <option value="">Choose a time</option>
+          <option>08:00 AM</option><option>09:30 AM</option><option>11:00 AM</option>
+          <option>12:30 PM</option><option>02:00 PM</option><option>04:00 PM</option>
+          <option>06:00 PM</option><option>08:00 PM</option>
+        </select>
+        <p class="field-error" id="time-error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="res-guests">Number of guests</label>
+        <select id="res-guests" name="guests" required aria-describedby="guests-error">
+          <option value="">Choose guests</option>
+          <option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option>
+          <option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option>
+        </select>
+        <p class="field-error" id="guests-error" role="alert"></p>
+      </div>
+      <button class="btn btn-primary" type="submit">Check Availability</button>
+      <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- 8. TESTIMONIALS -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Kind words</h2>
+      <p class="sample-note">Sample testimonials from fictional guests.</p>
+    </div>
+    <div class="testimonial-grid">
+      <blockquote class="card testimonial">
+        <p>The brown butter latte is the reason I now plan my mornings around this café.</p>
+        <footer>Aarav, sample guest</footer>
+      </blockquote>
+      <blockquote class="card testimonial">
+        <p>Brunch felt unhurried and warm. We stayed three hours and nobody minded.</p>
+        <footer>Meera, sample guest</footer>
+      </blockquote>
+      <blockquote class="card testimonial">
+        <p>Their almond croissant is flaky enough to make a mess of my shirt, and worth it.</p>
+        <footer>Kabir, sample guest</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 9. LOCATION / CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="contact-info">
+      <h2>Find us</h2>
+      <address>
+        <strong>Bean &amp; Butter</strong><br>
+        Main Market<br>
+        Chapra, Bihar
+      </address>
+      <dl class="contact-list">
+        <dt>Opening hours</dt>
+        <dd>Mon to Fri: 8:00 AM to 9:00 PM<br>Sat and Sun: 8:00 AM to 10:00 PM</dd>
+        <dt>Phone</dt>
+        <dd>+91 90000 00000 (sample number)</dd>
+        <dt>Email</dt>
+        <dd>hello@beanandbutter.example (sample address)</dd>
+      </dl>
+      <p class="fine-print">Bean &amp; Butter is a fictional concept. This is not a real business.</p>
+    </div>
+    <div class="contact-photo"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&amp;fit=crop&amp;w=1000&amp;h=700&amp;q=85" alt="Inviting café dining room with tables ready for guests" loading="lazy" decoding="async"></div>
+  </section>
+
+</main>
+
+<!-- 10. FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="logo" href="#home">Bean <span>&amp;</span> Butter</a>
+      <p>Good coffee. Better moments.</p>
+    </div>
+    <nav aria-label="Quick links">
+      <h3>Quick links</h3>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h3>Opening hours</h3>
+      <p>Mon to Fri: 8 AM to 9 PM<br>Sat and Sun: 8 AM to 10 PM</p>
+    </div>
+    <div>
+      <h3>Follow along</h3>
+      <ul class="social-list">
+        <li><a href="#" class="js-demo-link">Instagram</a></li>
+        <li><a href="#" class="js-demo-link">Facebook</a></li>
+        <li><a href="#" class="js-demo-link">X</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2026 Bean &amp; Butter. A fictional café concept.</p>
+</footer>
+
+<dialog class="account-dialog" id="account-dialog" aria-labelledby="account-title">
+  <button class="account-close" type="button" aria-label="Close account window">Close</button>
+  <p class="account-demo-note">Accounts are managed by Firebase Authentication. Your booking requests are saved securely to your account.</p>
+
+  <section class="account-view" id="login-view">
+    <h2 id="account-title">Log in</h2>
+    <form class="account-form" id="login-form">
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+      </div>
+      <p class="account-error" id="login-error" role="alert"></p>
+      <button class="btn btn-primary" type="submit">Log in</button>
+    </form>
+    <p class="account-switch-copy">New here? <button class="account-switch" type="button" data-open-account="signup">Create an account</button></p>
+  </section>
+
+  <section class="account-view" id="signup-view" hidden>
+    <h2>Create your account</h2>
+    <form class="account-form" id="signup-form">
+      <div class="field">
+        <label for="signup-name">Name</label>
+        <input type="text" id="signup-name" name="name" autocomplete="name" maxlength="80" required>
+      </div>
+      <div class="field">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" name="password" autocomplete="new-password" minlength="8" required>
+      </div>
+      <div class="field">
+        <label for="signup-confirm-password">Confirm password</label>
+        <input type="password" id="signup-confirm-password" name="confirmPassword" autocomplete="new-password" minlength="8" required>
+      </div>
+      <p class="account-error" id="signup-error" role="alert"></p>
+      <button class="btn btn-primary" type="submit">Sign up</button>
+    </form>
+    <p class="account-switch-copy">Already have an account? <button class="account-switch" type="button" data-open-account="login">Log in</button></p>
+  </section>
+
+  <section class="account-view" id="bookings-view" hidden>
+    <h2>My Bookings</h2>
+    <p class="customer-id" id="customer-id"></p>
+    <div id="booking-list"></div>
+  </section>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="script.js"></script>
+</body>
+</html>

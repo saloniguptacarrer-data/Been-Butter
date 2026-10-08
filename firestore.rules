@@ -1,0 +1,104 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function owns(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    match /users/{uid} {
+      allow create: if owns(uid)
+        && request.resource.data.keys().hasAll(['uid', 'name', 'email', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['uid', 'name', 'email', 'createdAt'])
+        && request.resource.data.uid == uid
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.createdAt == request.time;
+      allow get: if owns(uid);
+    }
+
+    match /admins/{uid} {
+      allow get: if owns(uid);
+    }
+
+    match /bookings/{bookingId} {
+      allow create: if owns(request.resource.data.userId)
+        && request.resource.data.keys().hasAll([
+          'bookingId', 'userId', 'customerName', 'customerEmail',
+          'date', 'time', 'guests', 'status', 'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'bookingId', 'userId', 'customerName', 'customerEmail',
+          'date', 'time', 'guests', 'status', 'createdAt'
+        ])
+        && request.resource.data.bookingId == bookingId
+        && request.resource.data.customerName is string
+        && request.resource.data.customerName.size() > 0
+        && request.resource.data.customerName.size() <= 80
+        && request.resource.data.customerEmail == request.auth.token.email
+        && request.resource.data.date is string
+        && request.resource.data.time is string
+        && request.resource.data.guests is int
+        && request.resource.data.guests >= 1
+        && request.resource.data.guests <= 6
+        && request.resource.data.status == 'pending'
+        && request.resource.data.createdAt == request.time;
+      allow get, list: if isAdmin() || owns(resource.data.userId);
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'status', 'paymentMethod', 'paymentStatus', 'amount',
+          'amountPaid', 'amountRemaining', 'transactionId'
+        ])
+        && request.resource.data.status in ['pending', 'confirmed', 'cancelled']
+        && (!('paymentMethod' in request.resource.data)
+          || request.resource.data.paymentMethod in ['Online', 'Cash'])
+        && (!('paymentStatus' in request.resource.data)
+          || request.resource.data.paymentStatus in ['Paid', 'Partially Paid', 'Pending'])
+        && (!('transactionId' in request.resource.data)
+          || (request.resource.data.transactionId is string
+            && request.resource.data.transactionId.size() <= 200))
+        && (!('amount' in request.resource.data)
+          || ((request.resource.data.amount is int || request.resource.data.amount is float)
+            && request.resource.data.amount >= 0))
+        && (!('amountPaid' in request.resource.data)
+          || ((request.resource.data.amountPaid is int || request.resource.data.amountPaid is float)
+            && request.resource.data.amountPaid >= 0))
+        && (!('amountRemaining' in request.resource.data)
+          || ((request.resource.data.amountRemaining is int || request.resource.data.amountRemaining is float)
+            && request.resource.data.amountRemaining >= 0))
+        && (!('amount' in request.resource.data)
+          || ('amountPaid' in request.resource.data
+            && 'amountRemaining' in request.resource.data
+            && request.resource.data.amountPaid <= request.resource.data.amount
+            && request.resource.data.amountRemaining == request.resource.data.amount - request.resource.data.amountPaid))
+        && (!('paymentStatus' in request.resource.data)
+          || request.resource.data.paymentStatus == 'Pending'
+          || ('amount' in request.resource.data && 'amountPaid' in request.resource.data))
+        && (!('paymentStatus' in request.resource.data)
+          || request.resource.data.paymentStatus != 'Paid'
+          || request.resource.data.amountPaid == request.resource.data.amount)
+        && (!('paymentStatus' in request.resource.data)
+          || request.resource.data.paymentStatus != 'Partially Paid'
+          || (request.resource.data.amountPaid > 0
+            && request.resource.data.amountPaid < request.resource.data.amount))
+        && (!('paymentMethod' in request.resource.data)
+          || request.resource.data.paymentMethod != 'Online'
+          || !('paymentStatus' in request.resource.data)
+          || request.resource.data.paymentStatus == 'Pending'
+          || ('transactionId' in request.resource.data
+            && request.resource.data.transactionId is string
+            && request.resource.data.transactionId.size() > 0));
+    }
+  }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin | Bean &amp; Butter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+  <header class="site-header">
+    <nav class="navbar admin-navbar" aria-label="Admin navigation">
+      <a class="logo" href="index.html">Bean <span>&amp;</span> Butter</a>
+      <span class="admin-identity" id="admin-identity" hidden></span>
+      <a class="btn btn-outline" href="index.html">Customer site</a>
+      <button class="btn btn-outline" id="admin-logout" type="button" hidden>Log out</button>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-state" id="admin-loading" aria-live="polite">
+      <h1>Loading admin dashboard</h1>
+      <p>Checking your account access...</p>
+    </section>
+
+    <section class="admin-state" id="admin-access" hidden>
+      <p class="admin-eyebrow">Bean &amp; Butter</p>
+      <h1 id="admin-access-title">Admin Login</h1>
+      <p id="admin-access-message">Sign in with your administrator email and password to view bookings.</p>
+      <form class="admin-login-form" id="admin-login-form">
+        <div class="field">
+          <label for="admin-login-email">Email</label>
+          <input type="email" id="admin-login-email" name="email" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="admin-login-password">Password</label>
+          <input type="password" id="admin-login-password" name="password" autocomplete="current-password" required>
+        </div>
+        <p class="admin-login-error" id="admin-login-error" role="alert" aria-live="polite"></p>
+        <button class="btn btn-primary" id="admin-login-submit" type="submit">Sign in</button>
+      </form>
+      <div class="admin-access-actions">
+        <a class="btn btn-outline" href="index.html">Customer site</a>
+        <button class="btn btn-outline" id="admin-access-logout" type="button" hidden>Log out</button>
+      </div>
+    </section>
+
+    <section id="admin-dashboard" hidden>
+      <div class="admin-heading">
+        <div>
+          <p class="admin-eyebrow">Operations</p>
+          <h1>Bookings</h1>
+        </div>
+        <button class="btn btn-outline" id="refresh-bookings" type="button">Refresh</button>
+      </div>
+
+      <section class="admin-metrics" aria-label="Booking summary">
+        <article class="admin-metric"><span>Total bookings</span><strong id="metric-total">0</strong></article>
+        <article class="admin-metric"><span>Pending bookings</span><strong id="metric-pending">0</strong></article>
+        <article class="admin-metric"><span>Confirmed bookings</span><strong id="metric-confirmed">0</strong></article>
+        <article class="admin-metric"><span>Cancelled bookings</span><strong id="metric-cancelled">0</strong></article>
+        <article class="admin-metric"><span>Total revenue</span><strong id="metric-revenue">₹0</strong></article>
+        <article class="admin-metric"><span>Today's bookings</span><strong id="metric-today">0</strong></article>
+      </section>
+
+      <div class="admin-table-heading">
+        <div>
+          <h2>All bookings</h2>
+          <p class="admin-muted" id="booking-count">0 records</p>
+        </div>
+        <p class="admin-feedback" id="admin-feedback" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="admin-table-scroll" role="region" aria-label="Bookings table" tabindex="0">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">Customer name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Guests</th>
+              <th scope="col">Booking status</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Payment method</th>
+              <th scope="col">Payment status</th>
+              <th scope="col">Amount paid</th>
+              <th scope="col">Amount remaining</th>
+              <th scope="col">Transaction ID</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="booking-rows">
+            <tr><td class="admin-empty" colspan="13">Bookings will appear here.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
